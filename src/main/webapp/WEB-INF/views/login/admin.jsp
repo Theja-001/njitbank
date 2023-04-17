@@ -178,6 +178,11 @@ button {
 	<div id="manageRates" class="tab">
 		<h2>Manage Rates</h2>
 		<!-- Add your code to manage rates here -->
+		<button class="tablinks" onclick="openTab(event, 'create')">Create Rate</button>
+        <button class="tablinks" onclick="openTab(event, 'view')">View Rates</button>
+        <button class="tablinks" onclick="openTab(event, 'edit')">Edit Rate</button>
+
+
 	</div>
 
 	<div id="viewAccounts" class="tab">
