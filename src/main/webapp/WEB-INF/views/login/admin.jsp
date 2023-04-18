@@ -1,4 +1,5 @@
-<c:import url="create-product.jsp" >
+
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -145,39 +146,58 @@ button {
 	<div id="manageProducts" class="tab" style="display: block;">
 		<h2>Manage Products</h2>
 
-          <button class="tablinks" onclick="openTab(event, 'create')">Create Product</button>
-          <button class="tablinks" onclick="openTab(event, 'view')">View Products</button>
-          <button class="tablinks" onclick="openTab(event, 'edit')">Edit Product</button>
+         <form method="get">
+           <input type="submit" name="action" value="Create Product">
+           <input type="submit" name="action" value="Edit Product">
+           <input type="submit" name="action" value="View Product">
+         </form>
 
+         <%
+           String action = request.getParameter("action");
 
-       <div class="tab">
-         <button class="tablinks" onclick="openTab(event, 'create')">Create Product</button>
-         <button class="tablinks" onclick="openTab(event, 'view')">View Products</button>
-         <button class="tablinks" onclick="openTab(event, 'edit')">Edit Product</button>
-       </div>
-
-       <div id="create" class="tabcontent">
-         <jsp:include page="create-product.jsp" />
-       </div>
-
-       <div id="view" class="tabcontent">
-         <jsp:include page="view-products.jsp" />
-       </div>
-
-       <div id="edit" class="tabcontent">
-         <jsp:include page="edit-product.jsp" />
-       </div>
-
-	</div>
-
+           if(action != null) {
+             if(action.equals("Create Product")) {
+               response.sendRedirect("create-product");
+             } else if(action.equals("Edit Product")) {
+               response.sendRedirect("edit-product");
+             } else if(action.equals("View Product")) {
+               response.sendRedirect("view-products");
+             }
+           }
+         %>
+</div>
 	<div id="manageServices" class="tab">
 		<h2>Manage Services</h2>
-		<!-- Add your code to manage services here -->
+	     <form method="get">
+               <input type="submit" name="action" value="Create Service">
+               <input type="submit" name="action" value="Edit Service">
+               <input type="submit" name="action" value="View Service">
+             </form>
+
+             <%
+               String action1 = request.getParameter("action");
+
+               if(action1 != null) {
+                 if(action1.equals("Create Service")) {
+                   response.sendRedirect("createService");
+                 } else if(action1.equals("Edit Service")) {
+                   response.sendRedirect("editService");
+                 } else if(action1.equals("View Service")) {
+                   response.sendRedirect("viewService");
+                 }
+               }
+             %>
+
 	</div>
 
 	<div id="manageRates" class="tab">
 		<h2>Manage Rates</h2>
 		<!-- Add your code to manage rates here -->
+		<button class="tablinks" onclick="openTab(event, 'create')">Create Rate</button>
+        <button class="tablinks" onclick="openTab(event, 'view')">View Rates</button>
+        <button class="tablinks" onclick="openTab(event, 'edit')">Edit Rate</button>
+
+
 	</div>
 
 	<div id="viewAccounts" class="tab">
