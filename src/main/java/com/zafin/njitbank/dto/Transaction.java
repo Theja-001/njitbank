@@ -14,6 +14,7 @@ public class Transaction {
     private int volume;
     private int value;
     private String transactionDate;
+    private String processDate;
 
     public String getTransactionCode() {
         return transactionCode;
@@ -87,7 +88,15 @@ public class Transaction {
         this.processDate = processDate;
     }
 
-    private String processDate;
-
-
+    public Transaction(String transactionCode, String customerId, String accountNo, String productCode, String serviceCode, int volume, int value, String transactionDate, String processDate) {
+        this.transactionCode = transactionCode;
+        this.customerId = customerId;
+        this.accountNo = accountNo;
+        this.productCode = productCode;
+        this.serviceCode = serviceCode;
+        this.volume = volume;
+        this.value = value;
+        this.transactionDate = transactionDate;
+        this.processDate = processDate;
+    }
 }
