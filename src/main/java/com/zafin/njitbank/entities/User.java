@@ -2,8 +2,8 @@ package com.zafin.njitbank.entities;
 
 import jakarta.persistence.Entity;
 
-@Entity
-public class User extends AbstractEntity {
+
+public class User  {
     private String firstName;
     private String lastName;
     private String email;
